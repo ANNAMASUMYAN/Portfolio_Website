@@ -1,6 +1,6 @@
 import React from "react";
 import styled from "styled-components";
-import { $textColor } from "./../const/const";
+import { $textColor, NAVBARITEMS } from "./../const/const";
 import { useSwiper } from "swiper/react";
 
 const NavContainer = styled.div`
@@ -37,58 +37,22 @@ const Navbar = () => {
   return (
     <NavContainer>
       <NavContent>
-        <NavItems
-          data-aos="fade-right"
-          data-aos-delay="3000"
-          data-aos-duration="2000"
-          data-aos-offset="300"
-          onClick={() => swiper.slideTo(0)}
-          spy={true}
-          smooth={true}
-          duration={500}
-          offset={-60}
-        >
-          about
-        </NavItems>
-        <NavItems
-          data-aos="fade-down"
-          data-aos-delay="3000"
-          data-aos-duration="2000"
-          data-aos-offset="300"
-          onClick={() => swiper.slideTo(1)}
-          spy={true}
-          smooth={true}
-          duration={500}
-          offset={-60}
-        >
-          skills
-        </NavItems>
-        <NavItems
-          data-aos="fade-up"
-          data-aos-delay="3000"
-          data-aos-duration="2000"
-          data-aos-offset="300"
-          onClick={() => swiper.slideTo(2)}
-          spy={true}
-          smooth={true}
-          duration={500}
-          offset={-60}
-        >
-          technologies
-        </NavItems>
-        <NavItems
-          data-aos="fade-left"
-          data-aos-delay="3000"
-          data-aos-duration="2000"
-          data-aos-offset="300"
-          onClick={() => swiper.slideTo(3)}
-          spy={true}
-          smooth={true}
-          duration={500}
-          offset={-60}
-        >
-          contact
-        </NavItems>
+        {NAVBARITEMS.map((item) => (
+          <NavItems
+            key={item.index}
+            data-aos={item.fadeDirection}
+            data-aos-delay="3000"
+            data-aos-duration="2000"
+            data-aos-offset="300"
+            onClick={() => swiper.slideTo(item.index)}
+            spy={true}
+            smooth={true}
+            duration={500}
+            offset={-60}
+          >
+            {item.label}
+          </NavItems>
+        ))}
       </NavContent>
     </NavContainer>
   );

@@ -8,6 +8,13 @@ const $textColor = "#a7a9ae";
 const $headerColor = "#d0dbe0";
 export { $textColor, $headerColor };
 
+export const NAVBARITEMS = [
+  { label: "about", index: 0, fadeDirection: "fade-right" },
+  { label: "skills", index: 1, fadeDirection: "fade-down" },
+  { label: "technologies", index: 2, fadeDirection: "fade-up" },
+  { label: "contact", index: 3, fadeDirection: "fade-left" },
+];
+
 export const DATA = [
   {
     id: "1.",
